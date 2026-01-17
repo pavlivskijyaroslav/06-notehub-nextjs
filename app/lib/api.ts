@@ -23,13 +23,10 @@ export interface NotesResponse {
   totalPages: number;
 }
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const fetchNotes = async ({
   page,
   search,
 }: FetchNotesParams): Promise<NotesResponse> => {
-  await delay(2000);
   const { data } = await axios.get<NotesResponse>(url, {
     params: { page, search },
     headers: {
@@ -67,4 +64,12 @@ const deleteNote = async (id: string): Promise<Note> => {
   return data;
 };
 
-export { fetchNotes, createNote, deleteNote };
+const fetchNoteById = async (id: string): Promise<Note> => {
+  const { data } = await axios.get<Note>(`${url}/${id}`, {
+    headers: {
+      Authorization: `Bearer ${API_KEY}`,
+    },
+  });
+  return data;
+};
+export { fetchNotes, createNote, deleteNote, fetchNoteById };

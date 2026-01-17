@@ -23,7 +23,7 @@ function Notes() {
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
 
-  const { data, isSuccess, isLoading, isError } = useQuery<NotesResponse>({
+  const { data, isSuccess } = useQuery<NotesResponse>({
     queryKey: ['notes', page, debouncedSearch],
     queryFn: () => fetchNotes({ page, search: debouncedSearch || undefined }),
     placeholderData: keepPreviousData,
@@ -50,9 +50,7 @@ function Notes() {
           </button>
         </header>
 
-        {!isLoading && !isError && data && data.notes.length === 0 && (
-          <SearchEmpty />
-        )}
+        {data && data.notes.length === 0 && <SearchEmpty />}
         {data && <NoteList notes={data.notes} />}
         {isModalOpen && (
           <Modal onClose={closeModal}>
