@@ -1,4 +1,4 @@
-import type { Note } from '@/app/types/note';
+import type { Note } from '@/types/note';
 
 import axios from 'axios';
 
