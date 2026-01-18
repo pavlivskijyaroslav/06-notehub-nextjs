@@ -1,4 +1,4 @@
-import css from '@/app/components/Footer/Footer.module.css';
+import css from '@/components/Footer/Footer.module.css';
 import Link from 'next/link';
 
 function Footer() {

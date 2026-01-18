@@ -1,11 +1,11 @@
-import css from '@/app/components/NoteForm/NoteForm.module.css';
+import css from '@/components/NoteForm/NoteForm.module.css';
 
 import * as Yup from 'yup';
 
 import { useId } from 'react';
 import { ErrorMessage, Formik, Form, Field, type FormikHelpers } from 'formik';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { createNote, type NoteFormValues } from '@/app/lib/api';
+import { createNote, type NoteFormValues } from '@/lib/api';
 
 const initialValues: NoteFormValues = {
   title: '',
@@ -46,7 +46,7 @@ function NoteForm({ onCancel }: NoteFormProps) {
 
   const handleSubmit = async (
     values: NoteFormValues,
-    actions: FormikHelpers<NoteFormValues>
+    actions: FormikHelpers<NoteFormValues>,
   ) => {
     console.log('Submitting values:', values);
     await mutation.mutateAsync(values);

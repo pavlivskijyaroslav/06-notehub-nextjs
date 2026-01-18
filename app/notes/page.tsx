@@ -3,16 +3,16 @@
 import css from '@/app/page.module.css';
 import { useState } from 'react';
 import { useDebounce } from 'use-debounce';
-import { fetchNotes } from '@/app/lib/api';
+import { fetchNotes } from '@/lib/api';
 import { useQuery, keepPreviousData } from '@tanstack/react-query';
-import type { NotesResponse } from '@/app/lib/api';
+import type { NotesResponse } from '@/lib/api';
 
-import NoteList from '@/app/components/NoteList/NoteList';
-import NoteForm from '@/app/components/NoteForm/NoteForm';
-import Modal from '@/app/components/Modal/Modal';
-import SearchBox from '@/app/components/SearchBox/SearchBox';
-import SearchEmpty from '@/app/components/SearchEmpty/SearchEmpty';
-import Pagination from '@/app/components/Pagination/Pagination';
+import NoteList from '@/components/NoteList/NoteList';
+import NoteForm from '@/components/NoteForm/NoteForm';
+import Modal from '@/components/Modal/Modal';
+import SearchBox from '@/components/SearchBox/SearchBox';
+import SearchEmpty from '@/components/SearchEmpty/SearchEmpty';
+import Pagination from '@/components/Pagination/Pagination';
 
 function Notes() {
   const [page, setPage] = useState(1);
