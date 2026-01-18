@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import TanstackProvider from '@/components/TanstackProvider/TanstackProvider';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 
 export default function RootLayout({
   children,
@@ -28,12 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <TanstackProvider>
+        <TanStackProvider>
           <Header />
           <main className="content">{children}</main>
           <div id="modal-root"></div>
           <Footer />
-        </TanstackProvider>
+        </TanStackProvider>
       </body>
     </html>
   );
